@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Mapa de Estacionamentos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <link rel="icon" href="image/icon.png" type="image/png">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Mapa de Estacionamentos</title>
+</head>
+<body>
+    
+<nav>
+    <div class="search-container">
+        <input id="location-input" type="text" placeholder="Digite o ponto de busca...">
+        <button id="search" class="search"></button>
+    </div>
+
+    <p class="brand">
+        <img src="image/logo_vagas.png" alt="Logo"/>
+    </p>
+
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <ul class="menu-normal">
+        <li><a href="estacioneJa.html">Estacione Já</a></li>
+        <li><a href="#vagas">Trabalhe Conosco</a></li>
+        <li><a href="#sobre">Sobre Nós</a></li>
+        <li>
+          <img src="image/usuario.png" alt="Ícone" style="width: 20px; height: 20px; margin-right: 10px;">
+          <a href="#">Cadastro | Login</a>
+      </li>
+    </ul>
+</nav>
+
+<div id="map"></div>
+
+<div id="parking-info" style="position: fixed; bottom: 20px; left: 20px; background-color: white; padding: 10px; border: 1px solid #ccc; border-radius: 5px; display: none;"></div>
+
+<script src="js/script.js"></script>
+</body>
+
+    <!-- <div id="parking-info" style="display: none;">
+        <strong id="parking-name"></strong><br>
+        <span id="parking-address"></span><br>
+        <span id="parking-opening-hours"></span><br>
+        <span id="parking-vacancies"></span><br>
+        <span id="parking-price"></span><br>
+        <button onclick="showMoreInfo()">Selecionar</button>
+    </div> -->  
+</html>

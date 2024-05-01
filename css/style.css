@@ -1,0 +1,234 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,315;1,315&display=swap');
+
+#map {
+    position: relative;
+    height: 800px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.search-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    width: 200px!important;   
+}
+
+#location-input {
+    width: 300px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-left:10 ;
+}
+
+#location-input::placeholder {
+    font-size: 14px;
+    color: #999;
+}
+
+#parking-info {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+#parking-info strong {
+    font-weight: bold;
+    font-size: 16px;
+    color: #222;
+}
+
+#parking-info button {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 10px;
+    background-color: #FFDF56;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#parking-info button:hover {
+    background-color: #FFDF56;
+}
+
+#parking-info span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+body {
+    background-color: #000000;
+}
+
+nav {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: #1A1A1A;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul.menu-normal {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul.menu-normal li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul.menu-normal li a:hover {
+    width: 100%;
+    border-bottom: 1px solid #FFDF56; 
+}
+
+nav ul li {
+    color: #FFDF56;
+    list-style: none;
+    padding: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    font-family:  'Josefin Sans', sans-serif;
+    font-weight: regular;
+}
+
+nav ul li a {
+    color: var(--yellow);
+    text-decoration: none;
+}
+
+img {
+    height: 55px;
+}
+
+.information h1{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 25px;
+    font-weight: bolder;
+    color: #FFDF56;
+    text-align: left;
+    margin-left: 30px;
+    margin-top: 30px;
+
+}
+
+.information p{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    color: white;
+    text-align: left;
+    margin-left: 30px;
+}
+
+.parking-spot {
+    display: inline-block;
+    margin: 30px;
+    margin-top: 100px;
+}
+
+.parking-spot button {
+    background-color: #2D830E;
+    border-radius: 10px;
+    border: 1px ;
+    color: #FFDF56;
+    padding: 6px 44px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    transform: rotate(-90deg); 
+}
+
+.parking-spot button.reserve {
+    padding: 6px 30px;
+}
+
+.parking-spot button:hover {
+    background-color: #2D830E;
+    color: #222222;
+}
+
+/* Adicionando estilo ao modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+}
+
+/* Estilizando o conteúdo do modal */
+.modal-content {
+    background-color: #FFFFFF;
+    margin: 100% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; 
+}
+
+/* Estilizando o botão de fechar */
+.close {
+    color: #888;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.request-background {
+    background-color: #FFFFFF; 
+    margin-top: 80px;
+    border-radius: 10px;
+    padding: 20px; 
+    width: 50%;
+    margin-left: 25%;
+}
+
+.request-info {
+    display: none; 
+    position: center; 
+    z-index: 1; 
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%) rotate(90deg);
+    padding: 10px;
+    border: 1px solid #888;
+}
+

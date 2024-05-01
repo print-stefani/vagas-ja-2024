@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <link rel="icon" href="image/icon.png" type="image/png">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Pedido de Reserva</title>
+</head>
+<body>
+    
+<nav>
+    <p class="brand">
+        <img src="image/logo_vagas.png" alt="Logo"/>
+    </p>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <ul class="menu-normal">
+        <li><a href="estacioneJa.html">Estacione Já</a></li>
+        <li><a href="#vagas">Trabalhe Conosco</a></li>
+        <li><a href="#sobre">Sobre Nós</a></li>
+        <li>
+          <img src="image/usuario.png" alt="Ícone" style="width: 20px; height: 20px; margin-right: 10px;">
+          <a href="#">Cadastro | Login</a>
+      </li>
+    </ul>
+</nav>
+<section>
+    <div class="information">
+        <h1>MAPA DO ESTACIONAMENTO:</h1>
+        <p>Selecione a vaga desejada</p>
+        <div id="parking-map">
+            <div class="parking-spot" id="spot1">
+                <button onclick="reserveSpot('spot1')">Livre</button>
+            </div>
+            <div class="parking-spot" id="spot2">
+                <button onclick="reserveSpot('spot2')">Livre</button>
+            </div>
+            <div class="parking-spot" id="spot3">
+                <button onclick="reserveSpot('spot3')">Livre</button>
+            </div>
+            <div class="parking-spot" id="spot4">
+                <button onclick="reserveSpot('spot4')">Livre</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="request-info" class="request-background" style="display: none;">
+        <h2>Pedido</h2>
+        <p>Vaga Selecionada: <span id="selected-spot"></span></p>
+        <p>Período: 3 horas</p>
+        <p>Valor: R$ <span id="request-price"></span></p>
+        <label for="entry-time">Entrada:</label>
+        <select id="entry-time" onchange="updateExitTime()">
+            <option value="00">00:00</option>
+            <option value="01">01:00</option>
+            <option value="02">02:00</option>
+            <option value="03">03:00</option>
+            <option value="04">04:00</option>
+            <option value="05">05:00</option>
+            <option value="06">06:00</option>
+            <option value="07">07:00</option>
+            <option value="08">08:00</option>
+            <option value="09">09:00</option>
+            <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option>
+            <option value="13">13:00</option>
+            <option value="14">14:00</option>
+            <option value="15">15:00</option>
+            <option value="16">16:00</option>
+            <option value="17">17:00</option>
+            <option value="18">18:00</option>
+            <option value="19">19:00</option>
+            <option value="20">20:00</option>
+            <option value="21">21:00</option>
+            <option value="22">22:00</option>
+            <option value="23">23:00</option>
+        </select>
+        <label for="exit-time">Saída:</label>
+        <span id="exit-time">00:00</span>
+        <label for="plate">Placa:</label>
+        <input type="text" id="plate" placeholder="AER3SI2">
+        <button id="pay-button" onclick="pay()" style="background-color: #FFDF56;">Pagar</button>
+    </div>
+</section>
+
+<script src="js/script-iot.js"></script>
+
+</body>
+</html>
