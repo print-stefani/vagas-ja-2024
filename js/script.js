@@ -2,7 +2,7 @@
 var script = document.createElement('script');
 
 // Defina o atributo src com a URL da API do Google Maps JavaScript
-script.src = 'https://maps.googleapis.com/maps/api/js?key=********************';
+script.src = 'https://maps.googleapis.com/maps/api/js?key=***********************************************';
 
 // Adicione o elemento script ao corpo do documento
 document.body.appendChild(script);
@@ -13,6 +13,7 @@ var searchBox;
 var infowindow;
 var isMobile;
 
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -23.55052, lng: -46.633308 }, // Centro de São Paulo
@@ -20,6 +21,7 @@ function initMap() {
         disableDefaultUI: true
     });
 
+    
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -163,8 +165,8 @@ function showParkingInfo(place) {
         } 
 
         infoContent += 'Quantidade de vagas: 50<br>';
-        infoContent += 'Periodo de 3 horas: R$ 25,00/hora<br>';
-        infoContent += '<button onclick="window.location.href=\'selecionar.html\'">Selecionar</button></div>';
+        infoContent += 'Preço: R$ 5,00/hora<br>';
+        infoContent += '<button onclick="showMoreInfo()">Selecionar</button></div>';
 
         // Atualize o conteúdo do elemento HTML com as informações do estacionamento
         document.getElementById('parking-info').innerHTML = infoContent;
@@ -174,7 +176,92 @@ function showParkingInfo(place) {
     });
 }
 
+// // Função para exibir informações detalhadas do estacionamento
+// function showParkingInfo(place) {
+//     var infoContent = '<div style="max-width: 300px;">'; // Limitar largura para melhor visualização
+
+//     // Nome do estacionamento (se disponível)
+//     if (place.name) {
+//         infoContent += '<strong>' + place.name + '</strong><br>';
+//     }
+
+//     // Endereço completo
+//     if (place.vicinity) {
+//         infoContent += 'Endereço: ' + place.vicinity + '<br>';
+//     }
+
+//     // Status de Abertura (se disponível)
+//     if (place.opening_hours && place.opening_hours.isOpen()) {
+//         infoContent += '<span style="color: green;">Aberto agora</span><br>';
+//     } else {
+//         infoContent += '<span style="color: red;">Fechado no momento</span><br>';
+//     }
+
+//     // Horário de Funcionamento (se disponível)
+//     if (place.opening_hours && place.opening_hours.periods && place.opening_hours.periods.length > 0) {
+//         infoContent += 'Horário de Funcionamento:<br>';
+//         place.opening_hours.periods.forEach(function (period) {
+//             var days = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+//             var openTime = period.open ? period.open.time : '00:00';
+//             var closeTime = period.close ? period.close.time : '00:00';
+//             infoContent += days[period.open.day] + ': ' + openTime + ' às ' + closeTime + '<br>';
+//         });
+//     }
+
+//     // Quantidade de vagas (exemplo: 50 vagas)
+//     infoContent += 'Quantidade de vagas: ' + (Math.floor(Math.random() * 100) + 1) + '<br>'; // Exemplo aleatório
+
+//     // Preço por hora (exemplo: R$ 5,00/hora)
+//     infoContent += 'Preço: R$ ' + (Math.random() * (10 - 3) + 3).toFixed(2) + '/hora<br>'; // Exemplo aleatório
+
+//     infoContent += '<button onclick="showMoreInfo()">Selecionar</button></div>';
+
+//     // Atualizar o conteúdo do elemento HTML com as informações do estacionamento
+//     document.getElementById('parking-info').innerHTML = infoContent;
+
+//     // Exibir o elemento HTML
+//     document.getElementById('parking-info').style.display = 'block';
+// }
+
+
+
 // Modifique a função clearMarkers para esconder o elemento HTML quando os marcadores são limpos
+// Exemplo de dados dos estacionamentos (substitua isso com seus próprios dados)
+const estacionamentos = [
+    { nome: 'Estacionamento A', endereco: 'Rua A, 123', vagasDisponiveis: 10 },
+    { nome: 'Estacionamento B', endereco: 'Rua B, 456', vagasDisponiveis: 5 },
+    { nome: 'Estacionamento C', endereco: 'Rua C, 789', vagasDisponiveis: 8 }
+];
+
+// Função para exibir estacionamentos na lista
+function exibirEstacionamentos() {
+    const listaEstacionamentos = document.querySelector('.lista-estacionamentos');
+
+    // Limpar lista antes de adicionar novos estacionamentos
+    listaEstacionamentos.innerHTML = '';
+
+    // Adicionar cada estacionamento à lista
+    estacionamentos.forEach(estacionamento => {
+        const itemEstacionamento = document.createElement('div');
+        itemEstacionamento.classList.add('lista-estacionamentos-item');
+        itemEstacionamento.innerHTML = `
+            <h3>${estacionamento.nome}</h3>
+            <p><strong>Endereço:</strong> ${estacionamento.endereco}</p>
+            <p><strong>Vagas Disponíveis:</strong> ${estacionamento.vagasDisponiveis}</p>
+            <button class="selecionar-btn">Selecionar</button>
+        `;
+        listaEstacionamentos.appendChild(itemEstacionamento);
+    });
+}
+
+
+// Chamada da função para exibir os estacionamentos na inicialização
+exibirEstacionamentos();
+
+
+
+
+
 function clearMarkers() {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
@@ -184,5 +271,3 @@ function clearMarkers() {
     // Esconda o elemento HTML
     document.getElementById('parking-info').style.display = 'none';
 }
-
-
